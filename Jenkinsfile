@@ -3,6 +3,9 @@ pipeline {
     environment {
         registry = "211125350773.dkr.ecr.ap-south-1.amazonaws.com/my-docker-repo"
     }
+    withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', credentialsId: 'aws']]) {
+    // Your pipeline steps that require AWS credentials
+}
     stages {
         stage('checkout') {
             steps {
